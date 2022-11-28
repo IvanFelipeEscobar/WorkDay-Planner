@@ -10,4 +10,8 @@ Each time block is color coded as past (red), present (blue), and future(green)
 
 ![Deployed site screenshot](./assets/planner-ss.png)
 
-[Link to Deployed site]()
+[Link to Deployed site](https://ivanfelipeescobar.github.io/WorkDay-Planner/)
+
+## Credits
+
+Made by Ivan Felipe Escobar
