@@ -1,15 +1,15 @@
-//
+var refreshBtn = $(`.refresh`)
 var saveBtn = $(`.saveBtn`);
 var currentDay = moment().format('dddd MMMM Do YYYY')
 
 
-$(`#currentDay`).text(currentDay);
+$(`#currentDay`).text(currentDay);//current date displayed at top
 
 function colorCode() {
-    var hour = moment().hours();
+    var hour = moment().hours(); //returns current hour in military time
 
     $(`.time-block`).each(function() {
-        var currHour = parseInt($(this).attr(`id`));
+        var currHour = parseInt($(this).attr(`id`)); //parse string value of each timeblock id into an integer
 
         if (currHour > hour) {
             $(this).addClass(`future`);
@@ -25,6 +25,9 @@ function colorCode() {
     })
 };
 
+refreshBtn.on(`click`, function() {
+    localStorage.clear()})
+
 saveBtn.on(`click`, function() {
 
     var time = $(this).siblings(`.hour`).text();//key
@@ -37,12 +40,11 @@ saveBtn.on(`click`, function() {
 
 function init() {
 
-    $(`.hour`).each(
+    $(`.hour`).each( 
         function() {
         var currHour = $(this).text();
-        console.log(currHour)
-        var currPlan = localStorage.getItem(currHour);
-        if(currPlan !== null) {
+        var currPlan = localStorage.getItem(currHour);//check local storage for each time block 
+        if(currPlan !== null) {//if something is saved in local storage it will be rendered into text area
             $(this).siblings(`.plan`).val(currPlan);
         }
     }
