@@ -26,7 +26,9 @@ function colorCode() {
 };
 
 refreshBtn.on(`click`, function() {
-    localStorage.clear()})
+    localStorage.clear()
+    window.location.reload()}
+    )
 
 saveBtn.on(`click`, function() {
 
